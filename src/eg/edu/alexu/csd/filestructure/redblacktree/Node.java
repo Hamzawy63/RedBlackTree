@@ -1,6 +1,6 @@
 package eg.edu.alexu.csd.filestructure.redblacktree;
 
-public class Node <T extends Comparable<T>, V> implements INode <T,V> {
+public class Node<T extends Comparable<T>, V> implements INode<T, V> {
 
     private INode<T, V> parent;
     private INode<T, V> leftChild;
@@ -9,12 +9,20 @@ public class Node <T extends Comparable<T>, V> implements INode <T,V> {
     private T key;
     private V value;
 
+    public Node(T key, V value) {
+        this.key = key;
+        this.value = value;
+    }
+
+    public Node(T key, V value, boolean color) {
+        this.color = color;
+        this.key = key;
+        this.value = value;
+    }
 
     @Override
     public void setParent(INode<T, V> parent) {
-
         this.parent = parent;
-
     }
 
     @Override
@@ -24,9 +32,7 @@ public class Node <T extends Comparable<T>, V> implements INode <T,V> {
 
     @Override
     public void setLeftChild(INode<T, V> leftChild) {
-
         this.leftChild = leftChild;
-
     }
 
     @Override
@@ -36,9 +42,7 @@ public class Node <T extends Comparable<T>, V> implements INode <T,V> {
 
     @Override
     public void setRightChild(INode<T, V> rightChild) {
-
         this.rightChild = rightChild;
-
     }
 
     @Override
@@ -53,9 +57,7 @@ public class Node <T extends Comparable<T>, V> implements INode <T,V> {
 
     @Override
     public void setKey(T key) {
-
         this.key = key;
-
     }
 
     @Override
