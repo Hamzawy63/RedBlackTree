@@ -8,22 +8,28 @@ public class Node<T extends Comparable<T>, V> implements INode<T, V> {
     private boolean color;
     private T key;
     private V value;
+    private boolean nil;
 
-    public Node(T key, V value) {
-        this.key = key;
-        this.value = value;
+
+     Node() {
+        nil = true;
+        color = INode.BLACK;
     }
 
     public Node(T key, V value, boolean color) {
+        this.nil = false;
         this.color = color;
         this.key = key;
         this.value = value;
+        leftChild = new Node();
+        rightChild = new Node();
     }
 
     @Override
     public void setParent(INode<T, V> parent) {
         this.parent = parent;
     }
+
 
     @Override
     public INode<T, V> getParent() {
@@ -43,6 +49,7 @@ public class Node<T extends Comparable<T>, V> implements INode<T, V> {
     @Override
     public void setRightChild(INode<T, V> rightChild) {
         this.rightChild = rightChild;
+
     }
 
     @Override
@@ -62,7 +69,7 @@ public class Node<T extends Comparable<T>, V> implements INode<T, V> {
 
     @Override
     public V getValue() {
-        return value;
+        return (V) value;
     }
 
     @Override
@@ -86,6 +93,6 @@ public class Node<T extends Comparable<T>, V> implements INode<T, V> {
 
     @Override
     public boolean isNull() {
-        return false;
+        return nil;
     }
 }
